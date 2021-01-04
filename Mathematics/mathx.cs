@@ -119,69 +119,7 @@ namespace CommonECS.Mathematics
 		{
 			return new float4(mod(v.x, m.x), mod(v.y, m.y), mod(v.z, m.z), mod(v.w, m.w));
 		}
-
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static int shift_left(int v)
-		{
-			if (v > 0)
-				return v >> 1;
-			else if (v < 0)
-				return v << 1;
-			return -1;
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static int shift_right(int v)
-		{
-			if (v > 0)
-				return v << 1;
-			else if (v < 0)
-				return v >> 1;
-			return 1;
-		}
-
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static int log_shift_left(int v)
-		{
-			if (v > 0)
-				return v / 10;
-			else if (v < 0)
-				return v * 10;
-			return -1;
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static int log_shift_right(int v)
-		{
-			if (v > 0)
-				return v * 10;
-			else if (v < 0)
-				return v / 10;
-			return 1;
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static float log_shift_left(float v)
-		{
-			if (v > 0)
-				return v / 10;
-			else if (v < 0)
-				return v * 10;
-			return -1;
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static float log_shift_right(float v)
-		{
-			if (v > 0)
-				return v * 10;
-			else if (v < 0)
-				return v / 10;
-			return 1;
-		}
-
+		
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool is_even(int v)
