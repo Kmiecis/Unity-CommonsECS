@@ -4,10 +4,10 @@ using Unity.Collections;
 
 namespace CommonECS
 {
-	public static class NativeArrayExtensions
+	public static class NativeListExtensions
 	{
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static NativeArray<T> Populate<T>(this NativeArray<T> self, T value)
+		public static NativeList<T> Populate<T>(this NativeList<T> self, T value)
 			where T : struct
 		{
 			for (int i = 0; i < self.Length; ++i)
@@ -16,7 +16,7 @@ namespace CommonECS
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryIndexOf<T, U>(this NativeArray<T> self, U value, out int index)
+		public static bool TryIndexOf<T, U>(this NativeList<T> self, U value, out int index)
 			where T : struct, IEquatable<U>
 		{
 			index = self.IndexOf(value);
@@ -24,7 +24,7 @@ namespace CommonECS
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGet<T>(this NativeArray<T> self, int index, out T value)
+		public static bool TryGet<T>(this NativeList<T> self, int index, out T value)
 			where T : struct
 		{
 			if (0 > index || index > self.Length - 1)
