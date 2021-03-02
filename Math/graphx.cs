@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CommonECS.Mathematics
 {
-	public static class graphics
+	public static class graphx
 	{
 		/// <summary>Converts a Color32 to a byte4 vector by componentwise conversion.</summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]

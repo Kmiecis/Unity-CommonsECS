@@ -3,14 +3,13 @@ using Unity.Mathematics;
 
 namespace CommonECS.Mathematics
 {
-	/// <summary>
-	/// Extended math library
-	/// </summary>
+	/// <summary> Extended math library </summary>
 	public static class mathx
 	{
+		public const float EPS = 1e-6f;
+
 		public const float ROOT_2 = 1.41421356237f;
 		public const float ROOT_3 = 1.73205080757f;
-		public const float EPSILON = 0.000001f;
 
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -105,30 +104,42 @@ namespace CommonECS.Mathematics
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float2 mod(float2 v, float2 m)
 		{
-			return new float2(mod(v.x, m.x), mod(v.y, m.y));
+			return new float2(
+				mod(v.x, m.x),
+				mod(v.y, m.y)
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float3 mod(float3 v, float3 m)
 		{
-			return new float3(mod(v.x, m.x), mod(v.y, m.y), mod(v.z, m.z));
+			return new float3(
+				mod(v.x, m.x),
+				mod(v.y, m.y),
+				mod(v.z, m.z)
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float4 mod(float4 v, float4 m)
 		{
-			return new float4(mod(v.x, m.x), mod(v.y, m.y), mod(v.z, m.z), mod(v.w, m.w));
+			return new float4(
+				mod(v.x, m.x),
+				mod(v.y, m.y),
+				mod(v.z, m.z),
+				mod(v.w, m.w)
+			);
 		}
 		
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool is_even(int v)
+		public static bool iseven(int v)
 		{
 			return v % 2 == 0;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool is_odd(int v)
+		public static bool isodd(int v)
 		{
 			return v % 2 != 0;
 		}
@@ -139,44 +150,30 @@ namespace CommonECS.Mathematics
 		{
 			return new float2(v.y, -v.x);
 		}
-
+		
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static float absmin(float a, float b)
+		public static int nextindex(int i, int count)
 		{
-			return math.abs(a) < math.abs(b) ? a : b;
+			return (i + 1) % count;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static float absmax(float a, float b)
+		public static int incrindex(int i, int count, int offset)
 		{
-			return math.abs(a) > math.abs(b) ? a : b;
-		}
-
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool between(float a, float b, float t)
-		{
-			return a < t && t < b;
+			return (i + offset) % count;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool between(int a, int b, int t)
+		public static int previndex(int i, int count)
 		{
-			return a < t && t < b;
-		}
-
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static int next(int v, int count, int offset = 1)
-		{
-			return (v + offset) % count;
+			return (i - 1 + count) % count;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static int prev(int v, int count, int offset = 1)
+		public static int decrindex(int i, int count, int offset)
 		{
-			return (v - offset + count) % count;
+			return (i - offset + count) % count;
 		}
 
 
@@ -232,109 +229,181 @@ namespace CommonECS.Mathematics
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float2 mul(float a, int2 b)
 		{
-			return new float2(a * b.x, a * b.y);
+			return new float2(
+				a * b.x,
+				a * b.y
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float3 mul(float a, int3 b)
 		{
-			return new float3(a * b.x, a * b.y, a * b.z);
+			return new float3(
+				a * b.x,
+				a * b.y,
+				a * b.z
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float4 mul(float a, int4 b)
 		{
-			return new float4(a * b.x, a * b.y, a * b.z, a * b.w);
+			return new float4(
+				a * b.x,
+				a * b.y,
+				a * b.z,
+				a * b.w
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float2 mul(int2 a, float b)
 		{
-			return new float2(a.x * b, a.y * b);
+			return new float2(
+				a.x * b,
+				a.y * b
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float3 mul(int3 a, float b)
 		{
-			return new float3(a.x * b, a.y * b, a.z * b);
+			return new float3(
+				a.x * b,
+				a.y * b,
+				a.z * b
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float4 mul(int4 a, float b)
 		{
-			return new float4(a.x * b, a.y * b, a.z * b, a.w * b);
+			return new float4(
+				a.x * b,
+				a.y * b,
+				a.z * b,
+				a.w * b
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float2 mul(float a, uint2 b)
 		{
-			return new float2(a * b.x, a * b.y);
+			return new float2(
+				a * b.x,
+				a * b.y
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float3 mul(float a, uint3 b)
 		{
-			return new float3(a * b.x, a * b.y, a * b.z);
+			return new float3(
+				a * b.x,
+				a * b.y,
+				a * b.z
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float4 mul(float a, uint4 b)
 		{
-			return new float4(a * b.x, a * b.y, a * b.z, a * b.w);
+			return new float4(
+				a * b.x,
+				a * b.y,
+				a * b.z,
+				a * b.w
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float2 mul(uint2 a, float b)
 		{
-			return new float2(a.x * b, a.y * b);
+			return new float2(
+				a.x * b,
+				a.y * b
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float3 mul(uint3 a, float b)
 		{
-			return new float3(a.x * b, a.y * b, a.z * b);
+			return new float3(
+				a.x * b,
+				a.y * b,
+				a.z * b
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float4 mul(uint4 a, float b)
 		{
-			return new float4(a.x * b, a.y * b, a.z * b, a.w * b);
+			return new float4(
+				a.x * b,
+				a.y * b,
+				a.z * b,
+				a.w * b
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float2 mul(float a, byte2 b)
 		{
-			return new float2(a * b.x, a * b.y);
+			return new float2(
+				a * b.x,
+				a * b.y
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float3 mul(float a, byte3 b)
 		{
-			return new float3(a * b.x, a * b.y, a * b.z);
+			return new float3(
+				a * b.x,
+				a * b.y,
+				a * b.z
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float4 mul(float a, byte4 b)
 		{
-			return new float4(a * b.x, a * b.y, a * b.z, a * b.w);
+			return new float4(
+				a * b.x,
+				a * b.y,
+				a * b.z,
+				a * b.w
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float2 mul(byte2 a, float b)
 		{
-			return new float2(a.x * b, a.y * b);
+			return new float2(
+				a.x * b,
+				a.y * b
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float3 mul(byte3 a, float b)
 		{
-			return new float3(a.x * b, a.y * b, a.z * b);
+			return new float3(
+				a.x * b,
+				a.y * b,
+				a.z * b
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static float4 mul(byte4 a, float b)
 		{
-			return new float4(a.x * b, a.y * b, a.z * b, a.w * b);
+			return new float4(
+				a.x * b,
+				a.y * b,
+				a.z * b,
+				a.w * b
+			);
 		}
 
 
@@ -453,21 +522,64 @@ namespace CommonECS.Mathematics
 
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool greater(float a, float b, float e = EPSILON)
+		public static bool iszero(float f)
 		{
-			return a - e > b;
+			return math.abs(f) < EPS;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool lesser(float a, float b, float e = EPSILON)
+		public static bool iszero(float2 v)
 		{
-			return a + e < b;
+			return (
+				iszero(v.x) &&
+				iszero(v.y)
+			);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool equals(float a, float b, float e = EPSILON)
+		public static bool iszero(float3 v)
 		{
-			return a - e < b && a + e > b;
+			return (
+				iszero(v.x) &&
+				iszero(v.y) &&
+				iszero(v.z)
+			);
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool iszero(float4 v)
+		{
+			return (
+				iszero(v.x) &&
+				iszero(v.y) &&
+				iszero(v.z) &&
+				iszero(v.w)
+			);
+		}
+
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool isequal(float a, float b)
+		{
+			return iszero(b - a);
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool isequal(float2 a, float2 b)
+		{
+			return iszero(b - a);
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool isequal(float3 a, float3 b)
+		{
+			return iszero(b - a);
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool isequal(float4 a, float4 b)
+		{
+			return iszero(b - a);
 		}
 	}
 }

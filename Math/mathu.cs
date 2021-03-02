@@ -22,7 +22,7 @@ namespace CommonECS.Mathematics
 		public static float angle(quaternion a, quaternion b)
 		{
 			var dot = math.dot(a, b);
-			return (dot > 1.0f - mathx.EPSILON) ? 0.0f : math.acos(math.min(math.abs(dot), 1.0f)) * 2.0f;
+			return (dot > 1.0f - mathx.EPS) ? 0.0f : math.acos(math.min(math.abs(dot), 1.0f)) * 2.0f;
 		}
 		
 
