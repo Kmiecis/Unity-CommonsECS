@@ -2,8 +2,8 @@
 
 namespace CommonECS.Buffers
 {
-	public struct MeshTrianglesBuffer : IBufferElementData
-	{
-		public int triangle;
-	}
+    public struct MeshTrianglesBuffer : IBufferElementData
+    {
+        public int triangle;
+    }
 }
