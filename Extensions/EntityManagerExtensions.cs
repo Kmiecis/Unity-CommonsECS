@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace CommonECS
+namespace CommonECS.Extensions
 {
     public static class EntityManagerExtensions
     {

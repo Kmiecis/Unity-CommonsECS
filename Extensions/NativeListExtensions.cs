@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using Unity.Collections;
 
-namespace CommonECS
+namespace CommonECS.Extensions
 {
     public static class NativeListExtensions
     {
