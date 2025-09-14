@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace CommonECS.Buffers
+namespace Common.ECS.Buffers
 {
     public struct MeshTrianglesBuffer : IBufferElementData
     {

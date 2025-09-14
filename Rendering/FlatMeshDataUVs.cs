@@ -1,9 +1,9 @@
-﻿using CommonECS.Buffers;
+﻿using Common.ECS.Buffers;
 using System.Runtime.CompilerServices;
 using Unity.Entities;
 using Unity.Mathematics;
 
-namespace CommonECS.Rendering
+namespace Common.ECS.Rendering
 {
     public struct FlatMeshDataUVs : IMeshTriangles, IMeshUVs
     {

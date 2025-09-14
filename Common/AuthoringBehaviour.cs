@@ -1,7 +1,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace CommonECS
+namespace Common.ECS
 {
     public abstract class AuthoringBehaviour<TComponent> : MonoBehaviour
         where TComponent : unmanaged, IComponentData

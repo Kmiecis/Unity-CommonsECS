@@ -1,10 +1,10 @@
-﻿using CommonECS.Buffers;
-using CommonECS.Mathematics;
+﻿using Common.ECS.Buffers;
+using Common.Mathematics;
 using System.Runtime.CompilerServices;
 using Unity.Entities;
 using Unity.Mathematics;
 
-namespace CommonECS.Rendering
+namespace Common.ECS.Rendering
 {
     public struct FlatMeshDataColors : IMeshTriangles, IMeshColors
     {

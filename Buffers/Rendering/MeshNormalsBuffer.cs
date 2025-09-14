@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.Mathematics;
 
-namespace CommonECS.Buffers
+namespace Common.ECS.Buffers
 {
     public struct MeshNormalsBuffer : IBufferElementData
     {

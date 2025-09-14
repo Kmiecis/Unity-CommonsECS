@@ -1,6 +1,6 @@
-﻿using CommonECS.Mathematics;
+﻿using Common.Mathematics;
 
-namespace CommonECS.Rendering
+namespace Common.ECS.Rendering
 {
     public interface IMeshColors
     {

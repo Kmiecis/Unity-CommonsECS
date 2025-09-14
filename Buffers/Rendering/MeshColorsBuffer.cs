@@ -1,7 +1,7 @@
-﻿using CommonECS.Mathematics;
+﻿using Common.Mathematics;
 using Unity.Entities;
 
-namespace CommonECS.Buffers
+namespace Common.ECS.Buffers
 {
     public struct MeshColorsBuffer : IBufferElementData
     {

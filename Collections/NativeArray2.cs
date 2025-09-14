@@ -4,7 +4,7 @@ using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Mathematics;
 
-namespace CommonECS.Collections
+namespace Common.ECS.Collections
 {
     [NativeContainer]
     [NativeContainerSupportsDeallocateOnJobCompletion]

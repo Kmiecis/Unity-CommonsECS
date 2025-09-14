@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using Unity.Collections;
 
-namespace CommonECS.Extensions
+namespace Common.ECS
 {
     public static class NativeArrayExtensions
     {

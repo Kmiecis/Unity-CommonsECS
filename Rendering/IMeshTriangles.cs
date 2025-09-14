@@ -1,6 +1,6 @@
 ﻿using Unity.Mathematics;
 
-namespace CommonECS.Rendering
+namespace Common.ECS.Rendering
 {
     public interface IMeshTriangles
     {
